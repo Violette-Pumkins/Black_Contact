@@ -1,14 +1,14 @@
 <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link active" href="#">Active</a>
+      <a class="nav-link active" href="#">Liste Partenaires</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link active" href="#">Liste Devis</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link active" href="#">Liste Catégories</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
+      <a class="nav-link active" href="#">Liste Catégories</a>
     </li>
   </ul>
