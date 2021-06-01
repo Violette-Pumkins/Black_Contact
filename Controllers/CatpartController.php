@@ -1,3 +1,9 @@
 <?php
-    class CatpartController{}
+    class CatpartController{
+        //liste des catégories 
+        //ajouter
+        //modifier
+        //supprimer
+        
+    }
 ?>
