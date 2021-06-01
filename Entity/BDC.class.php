@@ -1,5 +1,5 @@
 <?php
-    class BDC
+    class Bdc
     {
         //initialise chaque variable de ma table
         private Int $IDBDC;

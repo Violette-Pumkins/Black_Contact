@@ -1,7 +1,7 @@
 <input type="hidden" name="action" value="listecatbdc">
 
 <?php
-require('entity/Catpart.class.php');
+require('entity/Catbdc.class.php');
     // créer un tb vide
     $r=CatbdcController::afficherListeCatBdc();
     

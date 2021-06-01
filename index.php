@@ -20,7 +20,6 @@ if (isset($_GET['action'])) {
     switch ($action) {
         case 'accueil':
             require('views/header.php');
-            require('views/sidebar.php');
             require('views/accueil.php');
             require('views/footer.php');
             break;

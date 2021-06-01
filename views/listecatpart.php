@@ -18,7 +18,7 @@ require('entity/Catpart.class.php');
 
     <div class="container-sm" id="listecatbdc">
         
-    <a class="btn btn-outline-success add" href="index.php?action=ajoutercatbdc" role="button">Ajouter une catégorie bon de commande</a>
+    <a class="btn btn-outline-success add" href="index.php?action=ajoutercatbdc" role="button">Ajouter une catégorie partenaire</a>
 
         <table class="table table-bordered">
             <thead class="thead">
