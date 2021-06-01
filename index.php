@@ -20,9 +20,21 @@ if (isset($_GET['action'])) {
     switch ($action) {
         case 'accueil':
             require('views/header.php');
+            require('views/sidebar.php');
             require('views/accueil.php');
             require('views/footer.php');
             break;
+        case 'listecatbdc':
+            require('views/header.php');
+            require('views/listecatbdc.php');
+            require('views/footer.php');
+            break;
+        case 'listecatpart':
+            require('views/header.php');
+            require('views/listecatpart.php');
+            require('views/footer.php');
+            break;
+            
     }
 
 

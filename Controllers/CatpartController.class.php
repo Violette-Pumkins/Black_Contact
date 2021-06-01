@@ -1,20 +1,20 @@
 <?php
-    class CatbdcController {
-                //liste catégories
-        /**
+    class CatpartController{
+        //liste des catégories
+    /**
      * @param $choix
      * @return void
      */
-    public static function afficherListeCatBdc($choix=PDO::FETCH_ASSOC) : array
+    public static function afficherListeCatPart($choix=PDO::FETCH_ASSOC) : array
     {
-        $sql='SELECT * FROM `categorie_de_bons_de_commande` ORDER BY `libelle_categorie_bon_de_commande` ASC';
+        $sql='SELECT * FROM `categories_de_partenaire` ORDER BY `libelle_categorie_client` ASC';
         try{
         $res=BDCRM::getConnexion()->query($sql);
             // var_dump($res);
             
             switch($choix){
                 case PDO::FETCH_CLASS:
-                $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'categorie_de_bons_de_commande', ['identifiant_categorie_bon_de_commande ','libelle_categorie_bon_de_commande', 'repetition']);
+                $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'categories_de_partenaire', ['identifiant_categorie_partenaires','libelle_categorie_client']);
                 break;
             }
             $records=$res->fetchAll();
@@ -31,5 +31,9 @@
         //ajouter
         //modifier? avec liste?
         //suppprimer (cntrl suppr que si non utilisé)
+        //ajouter
+        //modifier
+        //supprimer
+        
     }
 ?>

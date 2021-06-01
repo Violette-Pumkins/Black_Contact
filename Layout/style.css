@@ -1,0 +1,18 @@
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    margin-top: auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+#listecatbdc{
+    margin-top: 10%;
+}
