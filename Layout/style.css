@@ -3,16 +3,12 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow:scroll;
 }
 footer {
-    margin-top: auto;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    color: white;
     text-align: center;
 }
-#listecatbdc{
-    margin-top: 10%;
+.liste{
+    margin-top: 5%;
 }

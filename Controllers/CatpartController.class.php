@@ -24,7 +24,7 @@
 
 
         }catch(PDOException $e){
-            die('<h1>Erreur lecture en BDD-afficherlisteCatBdc</h1>'. $e->getMessage());
+            die('<h1>Erreur lecture en BDD-afficherlisteCatpart</h1>'. $e->getMessage());
         }
         return $records;
     }

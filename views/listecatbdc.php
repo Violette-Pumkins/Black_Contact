@@ -14,11 +14,38 @@ require('entity/Catbdc.class.php');
         
     }
     ?>
+    <div class="container-sm mt-4">
+    <label class="form-check-label mb-2">
+                Ajoutez une catégorie:
+            </label>
+        <form class="form-inline">
+            <div class="form-group-sm mb-2">
+                <input type="text" class="form-control">
+            </div>
 
+            <div class="mt-4">
+            <label class="form-check-label">
+                catégorie répétitive? (exemple: abonnement)
+            </label>
+            <div>
+            </div>
+            <input class="form-check-input" type="radio" name="repetition">
+            <label class="form-check-label">
+                Oui
+            </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="repetition">
+            <label class="form-check-label">
+                Non
+            </label>
+            <div class="mt-4">
+            <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+            </div>
+        </form>
+    </div>
 
-    <div class="container-sm" id="listecatbdc">
-        
-    <a class="btn btn-outline-success add" href="index.php?action=ajoutercatbdc" role="button">Ajouter une catégorie bon de commande</a>
+    <div class="container-sm liste">
 
         <table class="table table-bordered">
             <thead class="thead">
@@ -52,10 +79,10 @@ require('entity/Catbdc.class.php');
                     <a class="btn btn-outline-warning update" href="index.php?action=updatecatbdc&IDCATBDC='.$catbdc->getIDCATBDC().'" role="button">Modifier</a>
                 </td>
                 <td>
-                    <form action="index.php?action=confirm&url=deleteEntreprise&back=listeentreprise" method="post">
-                        <input type="hidden" name="ID_en" value="'.$catbdc->getIDCATBDC().'">
-                        <input type="hidden" name="action" value="deleteEntreprise">
-                        <button type="submit" class="btn btn-outline-danger" name="deleteEntreprise">Supprimer</button>
+                    <form action="index.php?action=confirm&url=deleteCatbdc&back=listecatbdc" method="post">
+                        <input type="hidden" name="IDCATBDC" value="'.$catbdc->getIDCATBDC().'">
+                        <input type="hidden" name="action" value="deleteCatbdc">
+                        <button type="submit" class="btn btn-outline-danger" name="deleteCatdbc">Supprimer</button>
                     </form>
                 </td>
                 

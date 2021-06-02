@@ -33,7 +33,11 @@ if (isset($_GET['action'])) {
             require('views/listecatpart.php');
             require('views/footer.php');
             break;
-            
+        case 'listebdc':
+            require('views/header.php');
+            require('views/listebdc.php');
+            require('views/footer.php');
+            break;
     }
 
 
