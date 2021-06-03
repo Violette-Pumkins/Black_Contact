@@ -18,17 +18,20 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link active" href="#">Liste Partenaires</a>
+                <li class="nav-item">
+                <a class="nav-link active" href="index.php?action=listecontact">Contacts</a>
+                </li>
+                <a class="nav-link active" href="#">Partenaires</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="index.php?action=listebdc">Liste Devis</a>
+                <a class="nav-link active" href="index.php?action=listebdc">Bons de commandes</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="index.php?action=listecatbdc">Liste Catégories Bons de commandes</a>
+                <a class="nav-link active" href="index.php?action=listecatbdc">Catégories Bons de commandes</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="index.php?action=listecatpart">Liste Catégories Partenaires</a>
-                </li>
+                <a class="nav-link active" href="index.php?action=listecatpart">Catégories Partenaires</a>
+                
                 </ul>
             </div>
         </nav>
