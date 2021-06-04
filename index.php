@@ -43,6 +43,11 @@ if (isset($_GET['action'])) {
             require('views/listecontact.php');
             require('views/footer.php');
             break;
+        case 'listepart':
+            require('views/header.php');
+            require('views/listepart.php');
+            require('views/footer.php');
+            break;
     }
 
 

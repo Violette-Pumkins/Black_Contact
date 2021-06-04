@@ -8,7 +8,7 @@
      */
     public static function afficherListepart($choix=PDO::FETCH_ASSOC) : array
     {
-        $sql='SELECT * FROM `bon_de_commande` ORDER BY `identifiant_partenaire` ASC';
+        $sql='SELECT * FROM `partenaire` ORDER BY `identifiant_partenaire` ASC';
         try{
         $res=BDCRM::getConnexion()->query($sql);
             // var_dump($res);

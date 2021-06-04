@@ -21,7 +21,7 @@
                 <li class="nav-item">
                 <a class="nav-link active" href="index.php?action=listecontact">Contacts</a>
                 </li>
-                <a class="nav-link active" href="#">Partenaires</a>
+                <a class="nav-link active" href="index.php?action=listepart">Partenaires</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link active" href="index.php?action=listebdc">Bons de commandes</a>

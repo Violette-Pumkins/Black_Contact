@@ -7,15 +7,41 @@ require('entity/bdc.class.php');
     
     $bdcs=array();
     
-    foreach($r as $bdc){
+    foreach ($r as $bdc) {
         // var_dump($bdc);
         //remplit le tb par mon objet
         $bdcs[]= new BDC($bdc['identifiant_bon_de_commande'], $bdc['date_bon_de_commande'], $bdc['format_de_page'], $bdc['prix_du_bon_de_commande'], $bdc['identifiant_categorie_bon_de_commande'], $bdc['identifiant_partenaire']);
-        
     }
     ?>
+    <div class="container-sm mt-4">
+    <label class="form-check-label mb-4">
+                Ajoutez un bon de commande:
+            </label>
+        <form class="form-inline">
+        <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Date</label>
+            <div class="col-10">
+                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+            </div>
+        </div>
+            <label class="form-check-label mb-2">
+                Format de page
+            </label>
+            <div class="form-group-sm mb-2">
+                <input type="text" class="form-control">
+            </div>
+            <label class="form-check-label mb-2">
+                Prix du bon de commande
+            </label>
+            <div class="form-group-sm mb-2">
+                <input class="form-control" type="number" value="0" id="example-number-input">
+            </div>
+            <div class="mt-4">
+            <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+            </div>
+        </form>
+    </div>
     <div class="container-sm liste">
-    <a class="btn btn-outline-success add mb-4" href="index.php?action=ajoutercatbdc" role="button">Ajouter un bon de commande</a>
         <table class="table table-bordered">
             <thead class="thead">
                 <tr>
@@ -31,14 +57,13 @@ require('entity/bdc.class.php');
             </thead>
             <tbody>
             <?php
-            if(count($bdcs)<1){
-                echo (' <tr>
-                <td colspan="7" class="text-center"><h4>Veuillez rajouter une catégorie</h4></td>
+            if (count($bdcs)<1) {
+                echo(' <tr>
+                <td colspan="7" class="text-center"><h4>Veuillez rajouter un bon de commande</h4></td>
 
                 </tr>');
-                
             }
-            foreach($bdcs as $bdc){
+            foreach ($bdcs as $bdc) {
                 
                 //utilise le tb comme un tb normal
                 echo(' <tr>

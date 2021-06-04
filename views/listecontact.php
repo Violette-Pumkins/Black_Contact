@@ -49,7 +49,8 @@ require('entity/Contact.class.php');
         <table class="table table-bordered">
             <thead class="thead">
                 <tr>
-                <th scope="col">Libellé</th>
+                <th scope="col">Nom du contact</th>
+                <th scope="col">Nom du partenaire associé</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 </tr>
@@ -58,7 +59,7 @@ require('entity/Contact.class.php');
             <?php
             if(count($contacts)<1){
                 echo (' <tr>
-                <td colspan="7" class="text-center"><h4>Veuillez rajouter une catégorie</h4></td>
+                <td colspan="7" class="text-center"><h4>Veuillez rajouter un contact</h4></td>
 
                 </tr>');
                 
