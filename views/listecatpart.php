@@ -15,19 +15,7 @@ require('entity/Catpart.class.php');
     }
     ?>
 
-<div class="container-sm mt-4">
-    <label class="form-check-label mb-2">
-                Ajoutez une catégorie:
-            </label>
-        <form class="form-inline">
-            <div class="form-group-sm mb-2">
-                <input type="text" class="form-control">
-            </div>
-            <div class="mt-4">
-            <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
-            </div>
-        </form>
-    </div>
+
     <div class="container-sm liste">
         
 

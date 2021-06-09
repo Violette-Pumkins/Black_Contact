@@ -29,7 +29,33 @@
         }
         return $records;
     }
-        //ajouter
+    //ajouter
+
+        /**
+    * @param $mailcontact
+    * @param $nomcontact
+    * @param $idpartenaire
+    * @return bool
+    */
+    public static function ajoutercontact(string $mailcontact, $nomcontact, $idpartenaire):bool
+    {
+        $sql= 'INSERT INTO `contact`( `adresse_mail_contact`, `nom_contact`, `identifiant_partenaire`) VALUES (:mailcontact, :nomcontact, :idpartenaire)';
+
+        try {
+            // echo"controller:46";
+            $co=BDCRM::getConnexion();
+            // echo"hello";
+            $res=$co->prepare($sql);
+            $res->execute(array(':mailcontact'=>$mailcontact, ':nomcontact'=>$nomcontact, ':idpartenaire'=>$idpartenaire));
+            $res->closeCursor();
+            BDCRM::disconnect();
+            // var_dump("goodbye");
+            return true;
+        } catch (PDOException $e) {
+            die('<h1>Erreur lecture en BDD-ajoutercatpart</h1>'. $e->getMessage());
+        }
+        return false;
+    }
         //modifier? avec liste?
         //suppprimer (cntrl suppr que si non utilisé)
     }

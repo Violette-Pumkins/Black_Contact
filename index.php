@@ -25,29 +25,156 @@ if (isset($_GET['action'])) {
             break;
         case 'listecatbdc':
             require('views/header.php');
+            require('views/forms/ajoutercatbdc.php');
             require('views/listecatbdc.php');
             require('views/footer.php');
             break;
         case 'listecatpart':
             require('views/header.php');
+            require('views/forms/ajoutercatpart.php');
             require('views/listecatpart.php');
             require('views/footer.php');
             break;
         case 'listebdc':
             require('views/header.php');
+            require('views/forms/ajouterbondecommande.php');
             require('views/listebdc.php');
             require('views/footer.php');
             break;
         case 'listecontact':
             require('views/header.php');
+            require('views/forms/ajoutercontact.php');
             require('views/listecontact.php');
             require('views/footer.php');
             break;
         case 'listepart':
             require('views/header.php');
+            require('views/forms/ajouterpartenaire.php');
             require('views/listepart.php');
             require('views/footer.php');
             break;
+        case 'ajoutercatbdc':
+            if ($_GET['action'] = 'ajoutercatbdc') {
+                
+                $libcatbdc = trim(isset($_POST['libcatbdc'])) ? trim($_POST['libcatbdc']) : null;
+                // var_dump($libcatbdc);
+                // var_dump("index l:55");
+                $repet = isset($_POST['repetition']) ? 1 : 0;
+                // var_dump($repet);
+            }
+                $coderetour=CatbdcController::ajoutercatbdc($libcatbdc, $repet);
+                // var_dump("index l:59");
+                if ($coderetour) {
+                    header('Location: index.php?action=listecatbdc');
+                    // var_dump("index l:62");
+                    // TODO : : penser a changer URL.
+                    exit();
+                    $_SESSION['Success'] = "L'ajout de la catégorie est réussie";
+                    // Route('listejure');
+                    break;
+                }
+                else{
+                    $_SESSION['Erreur']="L'ajout à été problématique";
+                    // TODO: changer le msg
+                }
+    
+                break;
+        case 'ajoutercatpart':
+            if ($_GET['action'] = 'ajoutercatpart') {
+                
+                $libcatpart = trim(isset($_POST['libcatpart'])) ? trim($_POST['libcatpart']) : null;
+            }
+                $coderetour=CatpartController::ajoutercatpart($libcatpart);
+                if ($coderetour) {
+                    header('Location: index.php?action=listecatpart');
+                    // var_dump("index l:62");
+                    // TODO : : penser a changer URL.
+                    exit();
+                    $_SESSION['Success'] = "L'ajout de la catégorie est réussie";
+                    // Route('listejure');
+                    break;
+                }
+                else{
+                    $_SESSION['Erreur']="L'ajout à été problématique";
+                    // TODO: changer le msg
+                }
+    
+                break;
+        case 'ajouterpart':
+            if ($_GET['action'] = 'ajouterpart') {
+                
+                $nompart = trim(isset($_POST['nompart'])) ? trim($_POST['nompart']) : null;
+                $adressepart = trim(isset($_POST['adressepart'])) ? trim($_POST['adressepart']) : null;
+            }
+                $coderetour=PartenaireController::ajouterpart($nompart, $adressepart);
+                if ($coderetour) {
+                    header('Location: index.php?action=listepart');
+                    // var_dump("index l:62");
+                    // TODO : : penser a changer URL.
+                    exit();
+                    $_SESSION['Success'] = "L'ajout de la catégorie est réussie";
+                    // Route('listejure');
+                    break;
+                }
+                else{
+                    $_SESSION['Erreur']="L'ajout à été problématique";
+                    // TODO: changer le msg
+                }
+    
+                break;
+        case 'ajoutercontact':
+            
+            if ($_GET['action'] = 'ajoutercontact') {
+                
+                $mailcontact = trim(isset($_POST['mailcontact'])) ? trim($_POST['mailcontact']) : null;
+
+                $nomcontact = trim(isset($_POST['nomcontact'])) ? trim($_POST['nomcontact']) : null;
+
+                $nompartenaire = trim(isset($_POST['nompartenaire'])) ? trim($_POST['nompartenaire']) : null;
+            }
+                $coderetour=PartenaireController::ajoutercontact($mailcontact, $nomcontact, $nompartenaire);
+                if ($coderetour) {
+                    header('Location: index.php?action=listecatpart');
+                    // var_dump("index l:62");
+                    // TODO : : penser a changer URL.
+                    exit();
+                    $_SESSION['Success'] = "L'ajout de la catégorie est réussie";
+                    // Route('listejure');
+                    break;
+                }
+                else{
+                    $_SESSION['Erreur']="L'ajout à été problématique";
+                    // TODO: changer le msg
+                }
+    
+                break;
+        case 'ajouterbdc':
+            if ($_GET['action'] = 'ajouterbdc') {
+                
+                $date= trim(isset($_POST['date'])) ? trim($_POST['date']) : null;
+
+                $formatdepage = trim(isset($_POST['formatdepage'])) ? trim($_POST['formatdepage']) : null;
+
+                $prix = trim(isset($_POST['prix'])) ? trim($_POST['prix']) : null;
+            }
+                $coderetour=PartenaireController::ajouterbdc($date, $formatdepage, $prix);
+                if ($coderetour) {
+                    header('Location: index.php?action=listecatpart');
+                    // var_dump("index l:62");
+                    // TODO : : penser a changer URL.
+                    exit();
+                    $_SESSION['Success'] = "L'ajout de la catégorie est réussie";
+                    // Route('listejure');
+                    break;
+                }
+                else{
+                    $_SESSION['Erreur']="L'ajout à été problématique";
+                    // TODO: changer le msg
+                }
+    
+                break;
+
+
     }
 
 

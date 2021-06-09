@@ -28,7 +28,31 @@
         }
         return $records;
     }
-        //ajouter
+    //ajouter
+
+        /**
+    * @param $libcatpart
+    * @return bool
+    */
+    public static function ajoutercatpart(string $libcatpart):bool
+    {
+        $sql= 'INSERT INTO `categories_de_partenaire`(`libelle_categorie_partenaire`) VALUES (:libcatbdc)';
+
+        try {
+            // echo"controller:46";
+            $co=BDCRM::getConnexion();
+            // echo"hello";
+            $res=$co->prepare($sql);
+            $res->execute(array(':libcatpart'=>$libcatpart));
+            $res->closeCursor();
+            BDCRM::disconnect();
+            // var_dump("goodbye");
+            return true;
+        } catch (PDOException $e) {
+            die('<h1>Erreur lecture en BDD-ajoutercatpart</h1>'. $e->getMessage());
+        }
+        return false;
+    }
         //modifier? avec liste?
         //suppprimer (cntrl suppr que si non utilisé)
         //ajouter

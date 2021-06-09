@@ -14,28 +14,7 @@ require('entity/Partenaire.class.php');
         
     }
     ?>
-    <div class="container-sm mt-4">
-    <label class="form-check-label mb-4">
-                Ajoutez un partenaire:
-            </label>
-        <form class="form-inline">
-            <label class="form-check-label mb-2">
-                Nom du partenaire
-            </label>
-            <div class="form-group-sm mb-2">
-                <input type="text" class="form-control">
-            </div>
-            <label class="form-check-label mb-2">
-                Adresse du Partenaire
-            </label>
-            <div class="form-group-sm mb-2">
-                <input type="text" class="form-control">
-            </div>
-            <div class="mt-4">
-            <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
-            </div>
-        </form>
-    </div>
+
     <div class="container-sm liste">
         <table class="table table-bordered">
             <thead class="thead">
@@ -62,7 +41,10 @@ require('entity/Partenaire.class.php');
             <form> 
             <input type="hidden" name="action" value="updatepart">
             <td><input type="text" style="background: transparent;
-            border: none; color:white;" value="'.$part->getIDPART().'"></td>
+            border: none; color:white;" value="'.$part->getNOMPART().'"></td>
+
+            <td class="col-lg-12"><input type="text" class="col-lg-12" style="background: transparent;
+            border: none; color:white;" value="'.$part->getADRESSEPART().'"></td>
             </form>
                 <td> 
                     <a class="btn btn-outline-warning update" href="index.php?action=updatepart&IDpart='.$part->getIDPART().'" role="button">Modifier</a>

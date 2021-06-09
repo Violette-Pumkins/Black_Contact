@@ -18,8 +18,8 @@ require('entity/bdc.class.php');
             <thead class="thead">
                 <tr>
                 <th scope="col">Identifiant bon de commande</th>
-                <th scope="col">Nom du client</th>
-                <th scope="col">Catégorie du bon de commande</th>
+                <th scope="col">Nom du partenaire</th>
+                <th scope="col">Catégorie du partenaire</th>
                 <th scope="col">Catégorie du bon de commande</th>
                 <!-- si catégorie = répétition: -->
                 <!-- <th scope="col">date de facturation</th> -->

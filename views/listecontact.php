@@ -15,34 +15,6 @@ require('entity/Contact.class.php');
     }
     ?>
 
-<div class="container-sm mt-4">
-    <label class="form-check-label mb-4">
-                Ajoutez un contact:
-            </label>
-        <form class="form-inline">
-        <label class="form-check-label mb-2">
-                Adresse-Mail du contact
-            </label>
-            <div class="form-group-sm mb-2">
-                <input type="mail" class="form-control">
-            </div>
-            <label class="form-check-label mb-2">
-                Nom du contact
-            </label>
-            <div class="form-group-sm mb-2">
-                <input type="text" class="form-control">
-            </div>
-            <label class="form-check-label mb-2">
-                Nom du Partenaire
-            </label>
-            <div class="form-group-sm mb-2">
-                <input type="text" class="form-control">
-            </div>
-            <div class="mt-4">
-            <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
-            </div>
-        </form>
-    </div>
     <div class="container-sm liste">
         
 
