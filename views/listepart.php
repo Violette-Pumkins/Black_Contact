@@ -1,17 +1,14 @@
 <input type="hidden" name="action" value="listepart">
 
 <?php
-require('entity/Partenaire.class.php');
+    require('entity/Partenaire.class.php');
     // créer un tb vide
     $r=PartenaireController::afficherListepart();
-    
     $parts=array();
-    
     foreach($r as $part){
         // var_dump($part);
         //remplit le tb par mon objet
         $parts[]= new PARTENAIRE($part['identifiant_partenaire'], $part['nom_partenaire'], $part['adresse_partenaire']);
-        
     }
     ?>
 

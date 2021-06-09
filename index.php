@@ -131,11 +131,12 @@ if (isset($_GET['action'])) {
 
                 $nomcontact = trim(isset($_POST['nomcontact'])) ? trim($_POST['nomcontact']) : null;
 
-                $nompartenaire = trim(isset($_POST['nompartenaire'])) ? trim($_POST['nompartenaire']) : null;
+                $idpartenaire = trim(isset($_POST['idpartenaire'])) ? trim($_POST['idpartenaire']) : null;
+                // var_dump($idpartenaire);
             }
-                $coderetour=PartenaireController::ajoutercontact($mailcontact, $nomcontact, $nompartenaire);
+                $coderetour=ContactController::ajoutercontact($mailcontact, $nomcontact, $idpartenaire);
                 if ($coderetour) {
-                    header('Location: index.php?action=listecatpart');
+                    header('Location: index.php?action=listecontact');
                     // var_dump("index l:62");
                     // TODO : : penser a changer URL.
                     exit();

@@ -31,18 +31,29 @@
             </label>
             <div class="form-group-sm col-6 mb-2">
                 <input type="text" class="form-control" name="formatdepage" <?php
-                                                        if (isset($_POST['formatdepage'])) {
-                                                        echo "is-valid";
-                                                        }?>>
+                    if (isset($_POST['formatdepage'])) {
+                    echo "is-valid";
+                    }?>>
             </div>
             <label class="form-check-label mb-2">
                 Prix du bon de commande
             </label>
             <div class="form-group-sm col-6 mb-2">
                 <input class="form-control" type="number" value="0" name="prix"  <?php
-                                                        if (isset($_POST['prix'])) {
-                                                        echo "is-valid";
-                                                        }?>>
+                    if (isset($_POST['prix'])) {
+                    echo "is-valid";
+                    }?>>
+            </div>
+            <div class="form-group-sm col-6 mb-2">
+                <label class="form-check-label mb-2 mr-2">
+                    Partenaire associé
+                </label>
+                <select class="selectpicker" data-live-search="true" data-width="fit" name="idpartenaire">
+                    <?php foreach ($catbdcs as $catbdc) {
+                            echo ('<option selected value="' . $catbdc->getIDCATBDC() . '">' . $catbdc->getLIBCATBDC() . '</option>');
+                        }
+                    ?>
+                </select>
             </div>
             <div class="mt-4">
             <button type="submit" class="btn btn-primary mb-2">Ajouter</button>

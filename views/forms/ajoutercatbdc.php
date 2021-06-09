@@ -9,6 +9,19 @@
     if (isset($_POST['repetition'])) {
         $repet = true;
     }
+    require('entity/Catbdc.class.php');
+
+    // créer un tb vide
+    $r=CatbdcController::afficherListeCatBdc();
+    
+    $catbdcs=array();
+    
+    foreach($r as $catbdc){
+        // var_dump($catbdc);
+        //remplit le tb par mon objet
+        $catbdcs[]= new Catbdc($catbdc['identifiant_categorie_bon_de_commande'], $catbdc['libelle_categorie_bon_de_commande'], $catbdc['repetition']);
+        
+    }
 ?>
     <div class="container-sm mt-4">
     <label class="form-check-label mb-2">

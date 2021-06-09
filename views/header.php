@@ -40,9 +40,3 @@
 </header>
 
 <body>
-
-    <select class="selectpicker" data-live-search="true">
-        <option value="0">Mustard</option>
-        <option value="1">Ketchup</option>
-        <option value="2">Barbecue</option>
-    </select>

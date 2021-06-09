@@ -56,28 +56,6 @@ class ContactController {
             }
         return false;
     }
-    
-    /**
-     * 
-     */
-    public static function nompartdecontact()
-    {
-        $sql='SELECT `identifiant_partenaire` FROM `partenaire` WHERE `nom_partenaire` = :nompartenaire';
-
-        try {
-            $co=BDCRM::getConnexion()->query($sql);
-            $co->execute();
-            $records=$co->fetchAll();
-            $co->closeCursor();
-
-            BDCRM::disconnect();
-            
-            return $records;
-        } catch (PDOException $e) {
-            die('<h1>Erreur lecture en BDD-ajoutercatpart</h1>'. $e->getMessage());
-        }
-        return false;
-    }
 
     // https://developer.snapappointments.com/bootstrap-select
     /*
