@@ -22,14 +22,14 @@
         <form class="form-inline">
         <div class="form-group row">
             <label for="example-date-input" class="col-2 col-form-label">Date</label>
-            <div class="col-10">
+            <div class="col-6">
                 <input class="form-control" type="date" value="2011-08-19" name="date">
             </div>
         </div>
             <label class="form-check-label mb-2">
                 Format de page
             </label>
-            <div class="form-group-sm mb-2">
+            <div class="form-group-sm col-6 mb-2">
                 <input type="text" class="form-control" name="formatdepage" <?php
                                                         if (isset($_POST['formatdepage'])) {
                                                         echo "is-valid";
@@ -38,7 +38,7 @@
             <label class="form-check-label mb-2">
                 Prix du bon de commande
             </label>
-            <div class="form-group-sm mb-2">
+            <div class="form-group-sm col-6 mb-2">
                 <input class="form-control" type="number" value="0" name="prix"  <?php
                                                         if (isset($_POST['prix'])) {
                                                         echo "is-valid";

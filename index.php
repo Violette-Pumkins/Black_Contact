@@ -83,6 +83,7 @@ if (isset($_GET['action'])) {
             if ($_GET['action'] = 'ajoutercatpart') {
                 
                 $libcatpart = trim(isset($_POST['libcatpart'])) ? trim($_POST['libcatpart']) : null;
+                var_dump($libcatpart);
             }
                 $coderetour=CatpartController::ajoutercatpart($libcatpart);
                 if ($coderetour) {

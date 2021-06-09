@@ -10,7 +10,7 @@ require('entity/Catpart.class.php');
     foreach($r as $catpart){
         // var_dump($catpart);
         //remplit le tb par mon objet
-        $catparts[]= new Catbdc($catpart['identifiant_categorie_bon_de_commande'], $catpart['libelle_categorie_bon_de_commande'], $catpart['repetition']);
+        $catparts[]= new Catpart($catpart['identifiant_categorie_partenaires'],$catpart['libelle_categorie_partenaire']);
         
     }
     ?>

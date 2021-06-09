@@ -1,5 +1,3 @@
-    
-    </body>
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted">
 
@@ -10,3 +8,9 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
+
+    <script src="layout/bs4/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="layout/bs4/js/bootstrap.bundle.min.js"></script>
+    <script src="layout/bs4/js/bootstrap-select.min.js"></script>
+
+    </body>

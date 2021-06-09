@@ -20,7 +20,7 @@
             <label class="form-check-label mb-2">
                 Nom du partenaire
             </label>
-            <div class="form-group-sm mb-2">
+            <div class="form-group-sm col-6 mb-2">
                 <input type="text" class="form-control" name="nompart" <?php
                                                         if (isset($_POST['nompart'])) {
                                                         echo "is-valid";
@@ -30,7 +30,7 @@
             <label class="form-check-label mb-2">
                 Adresse du Partenaire
             </label>
-            <div class="form-group-sm mb-2">
+            <div class="form-group-sm col-6 mb-2">
                 <input type="text" class="form-control" name="adressepart"  <?php
                                                         if (isset($_POST['adressepart'])) {
                                                         echo "is-valid";

@@ -15,7 +15,7 @@
                 Ajoutez une catégorie:
             </label>
         <form action="index.php?action=ajoutercatbdc" class="form-inline" method="POST">
-            <div class="form-group-sm mb-2">
+            <div class="form-group-sm col-6 mb-2">
                 <input type="text" class="form-control <?php
                                                         if (isset($_POST['libcatbdc'])) {
                                                         echo "is-valid";

@@ -8,9 +8,14 @@ require('entity/Contact.class.php');
     $contacts=array();
     
     foreach($r as $contact){
-        // var_dump($contact);
+        // var_dump($contact); 
         //remplit le tb par mon objet
-        $contacts[]= new Catbdc($contact['identifiant_categorie_bon_de_commande'], $contact['libelle_categorie_bon_de_commande'], $contact['repetition']);
+        $contacts[]= new Contact(
+            $contact['identifiant_contact'], 
+            $contact['adresse_mail_contact'], 
+            $contact['nom_contact'], 
+            $contact['identifiant_partenaire']
+        );
         
     }
     ?>

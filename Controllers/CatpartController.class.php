@@ -7,14 +7,14 @@
      */
     public static function afficherListeCatPart($choix=PDO::FETCH_ASSOC) : array
     {
-        $sql='SELECT * FROM `categories_de_partenaire` ORDER BY `libelle_categorie_client` ASC';
+        $sql='SELECT * FROM `categories_de_partenaire` ORDER BY `libelle_categorie_partenaire` ASC';
         try{
         $res=BDCRM::getConnexion()->query($sql);
             // var_dump($res);
             
             switch($choix){
                 case PDO::FETCH_CLASS:
-                $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'categories_de_partenaire', ['identifiant_categorie_partenaires','libelle_categorie_client']);
+                $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'categories_de_partenaire', ['identifiant_categorie_partenaires','libelle_categorie_partenaire']);
                 break;
             }
             $records=$res->fetchAll();
@@ -36,7 +36,7 @@
     */
     public static function ajoutercatpart(string $libcatpart):bool
     {
-        $sql= 'INSERT INTO `categories_de_partenaire`(`libelle_categorie_partenaire`) VALUES (:libcatbdc)';
+        $sql= 'INSERT INTO `categories_de_partenaire`(`libelle_categorie_partenaire`) VALUES (:libcatpart)';
 
         try {
             // echo"controller:46";

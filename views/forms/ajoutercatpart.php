@@ -11,8 +11,8 @@
     <label class="form-check-label mb-2">
                 Ajoutez une catégorie:
             </label>
-        <form class="form-inline">
-            <div class="form-group-sm mb-2">
+        <form class="form-inline" method="POST" action="index.php?action=ajoutercatpart">
+            <div class="form-group-sm col-6 mb-2">
                 <input type="text" class="form-control" name="libcatpart"  <?php
                                                         if (isset($_POST['libcatpart'])) {
                                                         echo "is-valid";
