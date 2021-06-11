@@ -152,18 +152,27 @@ if (isset($_GET['action'])) {
                 break;
         case 'ajouterbdc':
             if ($_GET['action'] = 'ajouterbdc') {
-                
-                $date= trim(isset($_POST['date'])) ? trim($_POST['date']) : null;
 
+                // $daten=date_format($date,'Y-m-d H:i:s');
+                // var_dump($_POST['date']);
+                // var_dump($date);
+                // 
                 $formatdepage = trim(isset($_POST['formatdepage'])) ? trim($_POST['formatdepage']) : null;
-
+                var_dump($formatdepage);
                 $prix = trim(isset($_POST['prix'])) ? trim($_POST['prix']) : null;
-            }
-                $coderetour=PartenaireController::ajouterbdc($date, $formatdepage, $prix);
+                var_dump($prix);
+                $catbdc = trim(isset($_POST['idcatbdc'])) ? trim($_POST['idcatbdc']) : null;
+                var_dump($catbdc);
+                $part = trim(isset($_POST['idpartenaire'])) ? trim($_POST['idpartenaire']) : null;
+                var_dump($part);
+
+                $date = new DateTime($_POST['date']);
+                $insert_date = $date->format('Y-m-d H:i:s');
+            
+                $coderetour=BdcController::ajouterbdc($insert_date, $formatdepage, $prix, $catbdc, $part);
                 if ($coderetour) {
-                    header('Location: index.php?action=listecatpart');
+                    header('Location: index.php?action=listecbdc');
                     // var_dump("index l:62");
-                    // TODO : : penser a changer URL.
                     exit();
                     $_SESSION['Success'] = "L'ajout de la catégorie est réussie";
                     // Route('listejure');
@@ -173,7 +182,7 @@ if (isset($_GET['action'])) {
                     $_SESSION['Erreur']="L'ajout à été problématique";
                     // TODO: changer le msg
                 }
-    
+            }
                 break;
 
 

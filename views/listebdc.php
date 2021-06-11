@@ -10,7 +10,14 @@ require('entity/bdc.class.php');
     foreach ($r as $bdc) {
         // var_dump($bdc);
         //remplit le tb par mon objet
-        $bdcs[]= new BDC($bdc['identifiant_bon_de_commande'], $bdc['date_bon_de_commande'], $bdc['format_de_page'], $bdc['prix_du_bon_de_commande'], $bdc['identifiant_categorie_bon_de_commande'], $bdc['identifiant_partenaire']);
+        $bdcs[]= new BDC(
+            $bdc['identifiant_bon_de_commande'],
+            new DateTime($bdc['date_bon_de_commande']),
+            $bdc['format_de_page'],
+            $bdc['prix_du_bon_de_commande'],
+            $bdc['identifiant_categorie_bon_de_commande'], 
+            $bdc['identifiant_partenaire']
+        );
     }
     ?>
 
@@ -19,11 +26,9 @@ require('entity/bdc.class.php');
             <thead class="thead">
                 <tr>
                 <th scope="col">Identifiant bon de commande</th>
-                <th scope="col">Nom du client</th>
                 <th scope="col">Date du bon de commande</th>
                 <th scope="col">Format de page demandé</th>
                 <th scope="col">Prix</th>
-                <th scope="col">Catégorie du bon de commande</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 </tr>
@@ -43,7 +48,13 @@ require('entity/bdc.class.php');
             <form> 
             <input type="hidden" name="action" value="updatebdc">
             <td><input type="text" style="background: transparent;
-            border: none; color:white;" value="'.$bdc->getIDPART().'"></td>
+            border: none; color:white;" value="'.$bdc->getIDBDC().'"></td>
+            <td><input type="text" style="background: transparent;
+            border: none; color:white;" value="'.$bdc->getDATEBDC()->format('Y-m-d').'"></td>
+            <td><input type="text" style="background: transparent;
+            border: none; color:white;" class="col-lg-12" value="'.$bdc->getFORPAGE().'"></td>
+            <td><input type="text" style="background: transparent;
+            border: none; color:white;" value="'.$bdc->getPRIXBDC().'"></td>
             </form>
                 <td> 
                     <a class="btn btn-outline-warning update" href="index.php?action=updatebdc&IDbdc='.$bdc->getIDBDC().'" role="button">Modifier</a>
