@@ -153,10 +153,11 @@ if (isset($_GET['action'])) {
         case 'ajouterbdc':
             if ($_GET['action'] = 'ajouterbdc') {
 
-                // $daten=date_format($date,'Y-m-d H:i:s');
-                // var_dump($_POST['date']);
+                
+                $date = new DateTime($_POST['date']);
+                $insert_date = $date->format('Y-m-d H:i:s');
                 // var_dump($date);
-                // 
+                
                 $formatdepage = trim(isset($_POST['formatdepage'])) ? trim($_POST['formatdepage']) : null;
                 var_dump($formatdepage);
                 $prix = trim(isset($_POST['prix'])) ? trim($_POST['prix']) : null;
@@ -166,9 +167,6 @@ if (isset($_GET['action'])) {
                 $part = trim(isset($_POST['idpartenaire'])) ? trim($_POST['idpartenaire']) : null;
                 var_dump($part);
 
-                $date = new DateTime($_POST['date']);
-                $insert_date = $date->format('Y-m-d H:i:s');
-            
                 $coderetour=BdcController::ajouterbdc($insert_date, $formatdepage, $prix, $catbdc, $part);
                 if ($coderetour) {
                     header('Location: index.php?action=listecbdc');
