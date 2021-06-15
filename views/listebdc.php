@@ -1,24 +1,11 @@
 <input type="hidden" name="action" value="listebdc">
-
+<!-- <td>'.$bdctb->getLIBCATBDC().'</td>
+            <td>'.$bdctb->getNOMPART().'</td> -->
 <?php
 require('entity/bdc.class.php');
     // créer un tb vide
-    $r=bdcController::afficherListebdc();
-    
-    $bdcs=array();
-    
-    foreach ($r as $bdc) {
-        // var_dump($bdc);
-        //remplit le tb par mon objet
-        $bdcs[]= new BDC(
-            $bdc['identifiant_bon_de_commande'],
-            new DateTime($bdc['date_bon_de_commande']),
-            $bdc['format_de_page'],
-            $bdc['prix_du_bon_de_commande'],
-            $bdc['identifiant_categorie_bon_de_commande'], 
-            $bdc['identifiant_partenaire']
-        );
-    }
+    $liste_ligne=bdcController::afficherListebdc();
+    // var_dump($bdcs);
     ?>
 
     <div class="container-sm liste">
@@ -29,21 +16,42 @@ require('entity/bdc.class.php');
                 <th scope="col">Date du bon de commande</th>
                 <th scope="col">Format de page demandé</th>
                 <th scope="col">Prix</th>
+                <th scope="col">Nom partenaire</th>
+                <th scope="col">Catégorie de commande</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
             <?php
-            if (count($bdcs)<1) {
+            if (count($liste_ligne)<1) {
                 echo(' <tr>
                 <td colspan="7" class="text-center"><h4>Veuillez rajouter un bon de commande</h4></td>
 
                 </tr>');
             }
-            foreach ($bdcs as $bdc) {
-                
-                //utilise le tb comme un tb normal
+            foreach ($liste_ligne as $ligne) {
+                // var_dump($bdctb);
+                $bdc = new BDC(
+                    $ligne['identifiant_bon_de_commande'],
+                    new DateTime($ligne['date_bon_de_commande']),
+                    $ligne['format_de_page'],
+                    $ligne['prix_du_bon_de_commande'],
+                    $ligne['identifiant_categorie_bon_de_commande'],
+                    $ligne['identifiant_partenaire']
+                );
+                $partenaire = new Partenaire(
+                    $ligne['identifiant_partenaire'],
+                    $ligne['nom_partenaire'],
+                    $ligne['adresse_partenaire']
+                );
+                $catbdc = new Catbdc(
+                    $ligne['identifiant_categorie_bon_de_commande'],
+                    $ligne['libelle_categorie_bon_de_commande'],
+                    $ligne['repetition'],
+                );
+
+
                 echo(' <tr>
             <form> 
             <input type="hidden" name="action" value="updatebdc">
@@ -56,6 +64,8 @@ require('entity/bdc.class.php');
             <td><input type="text" style="background: transparent;
             border: none; color:white;" value="'.$bdc->getPRIXBDC().'"></td>
             </form>
+            <td>'.$partenaire->getNOMPART().'</td>
+            <td>'.$catbdc->getLIBCATBDC().'</td>
                 <td> 
                     <a class="btn btn-outline-warning update" href="index.php?action=updatebdc&IDbdc='.$bdc->getIDBDC().'" role="button">Modifier</a>
                 </td>

@@ -10,14 +10,19 @@ class BdcController
      */
     public static function afficherListeBdc($choix=PDO::FETCH_ASSOC) : array
     {
-        $sql='SELECT * FROM `bon_de_commande` ORDER BY `identifiant_partenaire` ASC';
+        $sql='SELECT b.identifiant_bon_de_commande, b.date_bon_de_commande, b.format_de_page, b.prix_du_bon_de_commande, b.identifiant_partenaire, b.identifiant_categorie_bon_de_commande, cbdc.libelle_categorie_bon_de_commande, cbdc.identifiant_categorie_bon_de_commande, cbdc.repetition, p.identifiant_partenaire, p.nom_partenaire, p.adresse_partenaire
+        FROM bon_de_commande b
+        JOIN partenaire p
+        ON b.identifiant_partenaire = p.identifiant_partenaire
+        JOIN categorie_de_bons_de_commande cbdc
+        ON cbdc.identifiant_categorie_bon_de_commande = b.identifiant_categorie_bon_de_commande
+        ORDER BY `identifiant_bon_de_commande` ASC';
         try{
         $res=BDCRM::getConnexion()->query($sql);
-            // var_dump($res);
             
             switch($choix){
                 case PDO::FETCH_CLASS:
-                $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'bon_de_commande', ['identifiant_bon_de_commande ','date_bon_de_commande', 'format_de_page', 'prix_du_bon_de_commande', 'identifiant_categorie_bon_de_commande', 'identifiant_partenaire']);
+                $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'bon_de_commande', ['identifiant_bon_de_commande', 'date_bon_de_commande', 'format_de_page', 'prix_du_bon_de_commande', 'identifiant_partenaire', 'identifiant_categorie_bon_de_commande', 'libelle_categorie_bon_de_commande', 'identifiant_categorie_bon_de_commande', 'repetition', 'identifiant_partenaire', 'nom_partenaire', 'adresse_partenaire']);
                 break;
             }
             $records=$res->fetchAll();
