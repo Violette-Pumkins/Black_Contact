@@ -10,7 +10,14 @@ require('entity/bdc.class.php');
     foreach ($r as $bdc) {
         // var_dump($bdc);
         //remplit le tb par mon objet
-        $bdcs[]= new BDC($bdc['identifiant_bon_de_commande'], $bdc['date_bon_de_commande'], $bdc['format_de_page'], $bdc['prix_du_bon_de_commande'], $bdc['identifiant_categorie_bon_de_commande'], $bdc['identifiant_partenaire']);
+        $bdcs[]= new BDC(
+            $bdc['identifiant_bon_de_commande'],
+            new DateTime($bdc['date_bon_de_commande']),
+            $bdc['format_de_page'],
+            $bdc['prix_du_bon_de_commande'],
+            $bdc['identifiant_categorie_bon_de_commande'], 
+            $bdc['identifiant_partenaire']
+            );
     }
     ?>
     <div class="container-sm liste">
