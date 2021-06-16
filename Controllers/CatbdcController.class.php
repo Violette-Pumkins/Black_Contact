@@ -1,7 +1,7 @@
 <?php
     class CatbdcController {
-                //liste catégories
-        /**
+    //liste catégories
+    /**
      * @param $choix
      * @return void
      */

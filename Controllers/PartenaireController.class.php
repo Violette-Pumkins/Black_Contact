@@ -51,7 +51,7 @@
             // var_dump("goodbye");
             return true;
         } catch (PDOException $e) {
-            die('<h1>Erreur lecture en BDD-ajoutercatpart</h1>'. $e->getMessage());
+            die('<h1>Erreur lecture en BDD-ajouterpart</h1>'. $e->getMessage());
         }
         return false;
     }

@@ -7,18 +7,33 @@ require('entity/bdc.class.php');
     
     $bdcs=array();
     
-    foreach ($r as $bdc) {
+    foreach ($r as $ligns) {
         // var_dump($bdc);
         //remplit le tb par mon objet
-        $bdcs[]= new BDC(
-            $bdc['identifiant_bon_de_commande'],
-            new DateTime($bdc['date_bon_de_commande']),
-            $bdc['format_de_page'],
-            $bdc['prix_du_bon_de_commande'],
-            $bdc['libelle_categorie_bon_de_commande'],
-            $bdc['nom_partenaire']
-            
-            );
+        $bdc= new BDC(
+            $ligne['identifiant_bon_de_commande'],
+            new DateTime($ligne['date_bon_de_commande']),
+            $ligne['format_de_page'],
+            $ligne['prix_du_bon_de_commande'],
+            $ligne['libelle_categorie_bon_de_commande'],
+            $ligne['nom_partenaire']
+        );
+
+        $part= new Partenaire(
+            $ligne['identifiant_partenaire'],
+            $ligne['nom_partenaire'],
+            $ligne['adresse_partenaire']
+        );
+        $cbdc= new Catbdc(
+            $ligne['identifiant_categorie_bon_de_commande'],
+            $ligne['libelle_categorie_bon_de_commande'],
+            $ligne['repetition'],
+        );
+        $cpart= new Catpart(
+            $ligne['identifiant_categorie_partenaires'],
+            $ligne['libelle_categorie_client']
+        );
+        
     }
     ?>
     <div class="container-sm liste">
@@ -40,7 +55,7 @@ require('entity/bdc.class.php');
             <?php
             if (count($bdcs)<1) {
                 echo(' <tr>
-                <td colspan="7" class="text-center"><h4>Veuillez rajouter un bon de commande</h4></td>
+                <td colspan="7" class="text-center"><h4>Les bons de commandes se sont échappé...</h4></td>
 
                 </tr>');
             }
@@ -49,12 +64,11 @@ require('entity/bdc.class.php');
                 //utilise le tb comme un tb normal
                 echo(' <tr>
             <input type="hidden" name="action" value="updatebdc">
-            <td>'.$bdc->getIDBDC().'</td>
             <td>'.$bdc->getDATEBDC().'</td>
-            <td>'.$bdc->getFORPAGE().'</td>
-            <td>'.$bdc->getPRIXBDC().'</td>
-            <td>'.$bdc->getLIBCATBDC().'</td>
-            <td>'.$bdc->getNOMPART().'</td>
+            <td>'.$bdc->getIDBDC().'</td>
+            <td>'.$part->getNOMPART().'</td>
+            <td>'.$cpart->getLIBCATPART().'</td>
+            <td>'.$cbdc->getLIBCATBDC().'</td>
             <td> 
                 <a class="btn btn-outline-warning update" href="index.php?action=updatebdc&IDbdc='.$bdc->getIDBDC().'" role="button">Modifier</a>
             </td>

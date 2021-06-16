@@ -60,7 +60,7 @@ if (isset($_GET['action'])) {
                 // var_dump($libcatbdc);
                 // var_dump("index l:55");
                 $repet = isset($_POST['repetition']) ? 1 : 0;
-                // var_dump($repet);
+                var_dump($repet);
             }
                 $coderetour=CatbdcController::ajoutercatbdc($libcatbdc, $repet);
                 // var_dump("index l:59");

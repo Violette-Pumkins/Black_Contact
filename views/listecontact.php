@@ -50,6 +50,7 @@ require('entity/Contact.class.php');
             <td><input type="text" style="background: transparent;
             border: none; color:white;" value="'.$contact->getNOMCON().'"></td>
             </form>
+            <td>'.$contact->getIDPART().'</td>
                 <td> 
                     <a class="btn btn-outline-warning update" href="index.php?action=updatecatbdc&IDCATBDC='.$contact->getNOMCON().'" role="button">Modifier</a>
                 </td>
