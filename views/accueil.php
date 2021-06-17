@@ -5,36 +5,6 @@ require('entity/bdc.class.php');
     // créer un tb vide
     $r=bdcController::afficherListebdc();
     
-    $bdcs=array();
-    
-    foreach ($r as $ligns) {
-        // var_dump($bdc);
-        //remplit le tb par mon objet
-        $bdc= new BDC(
-            $ligne['identifiant_bon_de_commande'],
-            new DateTime($ligne['date_bon_de_commande']),
-            $ligne['format_de_page'],
-            $ligne['prix_du_bon_de_commande'],
-            $ligne['libelle_categorie_bon_de_commande'],
-            $ligne['nom_partenaire']
-        );
-
-        $part= new Partenaire(
-            $ligne['identifiant_partenaire'],
-            $ligne['nom_partenaire'],
-            $ligne['adresse_partenaire']
-        );
-        $cbdc= new Catbdc(
-            $ligne['identifiant_categorie_bon_de_commande'],
-            $ligne['libelle_categorie_bon_de_commande'],
-            $ligne['repetition'],
-        );
-        $cpart= new Catpart(
-            $ligne['identifiant_categorie_partenaires'],
-            $ligne['libelle_categorie_client']
-        );
-        
-    }
     ?>
     <div class="container-sm liste">
         <table class="table table-bordered">
@@ -53,14 +23,36 @@ require('entity/bdc.class.php');
             </thead>
             <tbody>
             <?php
-            if (count($bdcs)<1) {
+            if (count($r)<1) {
                 echo(' <tr>
                 <td colspan="7" class="text-center"><h4>Les bons de commandes se sont échappé...</h4></td>
 
                 </tr>');
             }
-            foreach ($bdcs as $bdc) {
-                
+            foreach ($r as $lignes) {
+                $bdc= new BDC(
+                    $ligne['identifiant_bon_de_commande'],
+                    new DateTime($ligne['date_bon_de_commande']),
+                    $ligne['format_de_page'],
+                    $ligne['prix_du_bon_de_commande'],
+                    $ligne['libelle_categorie_bon_de_commande'],
+                    $ligne['nom_partenaire']
+                );
+        
+                $part= new Partenaire(
+                    $ligne['identifiant_partenaire'],
+                    $ligne['nom_partenaire'],
+                    $ligne['adresse_partenaire']
+                );
+                $cbdc= new Catbdc(
+                    $ligne['identifiant_categorie_bon_de_commande'],
+                    $ligne['libelle_categorie_bon_de_commande'],
+                    $ligne['repetition'],
+                );
+                $cpart= new Catpart(
+                    $ligne['identifiant_categorie_partenaires'],
+                    $ligne['libelle_categorie_client']
+                );
                 //utilise le tb comme un tb normal
                 echo(' <tr>
             <input type="hidden" name="action" value="updatebdc">

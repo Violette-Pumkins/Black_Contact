@@ -49,7 +49,7 @@
         <div class="form-group row">
             <label for="example-date-input" class="col-2 col-form-label">Date</label>
             <div class="col-6">
-                <input class="form-control" type="date" value="2011-08-19" name="date">
+                <input class="form-control" type="date" value="2019-01-01" name="date">
             </div>
         </div>
             <label class="form-check-label mb-2">

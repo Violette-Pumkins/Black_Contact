@@ -8,14 +8,18 @@ class ContactController {
      */
     public static function afficherListeContact($choix=PDO::FETCH_ASSOC) : array 
     {
-        $sql='SELECT * FROM `contact` ORDER BY `adresse_mail_contact` ASC';
+        $sql='SELECT c.identifiant_contact, c.adresse_mail_contact, c.nom_contact, c.identifiant_partenaire, p.identifiant_partenaire, p.nom_partenaire, p.adresse_partenaire
+        FROM contact c
+        JOIN partenaire p
+        ON c.identifiant_partenaire = p.identifiant_partenaire
+        ORDER BY c.adresse_mail_contact ASC';
         try{
         $res=BDCRM::getConnexion()->query($sql);
             // var_dump($res);
             
             switch($choix){
                 case PDO::FETCH_CLASS:
-                $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'contact', ['identifiant_contact','adresse_mail_contact', 'nom_contact', 'identifiant_partenaire']);
+                $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, ['identifiant_contact', 'adresse_mail_contact', 'nom_contact', 'identifiant_partenaire', 'identifiant_partenaire', 'nom_partenaire', 'adresse_partenaire']);
                 break;
             }
             $records=$res->fetchAll();
