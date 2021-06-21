@@ -16,7 +16,7 @@ CREATE TABLE partenaire(
 
 
 #------------------------------------------------------------
-# Table: catégorie de bons de commande
+# Table: catï¿½gorie de bons de commande
 #------------------------------------------------------------
 
 CREATE TABLE categorie_de_bons_de_commande(
@@ -46,12 +46,12 @@ CREATE TABLE bon_de_commande(
 
 
 #------------------------------------------------------------
-# Table: catégories de partenaire
+# Table: catï¿½gories de partenaire
 #------------------------------------------------------------
 
 CREATE TABLE categories_de_partenaire(
         identifiant_categorie_partenaires Int NOT NULL AUTO_INCREMENT,
-        libelle_categorie_client          Varchar (20) NOT NULL
+        libelle_categorie_partenaire          Varchar (20) NOT NULL
 	,CONSTRAINT categories_de_partenaire_PK PRIMARY KEY (identifiant_categorie_partenaires)
 )ENGINE=InnoDB;
 
